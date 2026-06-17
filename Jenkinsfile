@@ -7,18 +7,19 @@ agent any // Use any available agent
   stages {
     stage('Build') {
       steps {
-        sh 'gradle build' // Run Maven build
+        sh 'chmod +x gradlew'
+        sh './gradlew build -x test' 
       }
     }
     stage('Test') {
       steps {
-        sh 'gradle test' // Run unit tests
+        sh './gradlew test' 
       }
   }
   stage('Run Application') {
     steps {
 // Start the JAR application
-      sh 'gradle run'
+      sh './gradlew assemble'
     }
   }
 }
