@@ -2,7 +2,7 @@ pipeline {
 agent any // Use any available agent
   tools {
     gradle 'Gradle' // Ensure this matches the name configured in Jenkins
-    jdk 'jdk'
+    jdk 'JDK'
   }
   stages {
     stage('Build') {
@@ -23,11 +23,11 @@ agent any // Use any available agent
   }
 }
 post {
-success {
-  echo 'Build and deployment successful!'
-}
-failure {
-  echo 'Build failed!'
-}
+  success {
+    echo 'Build and deployment successful!'
+  }
+  failure {
+    echo 'Build failed!'
+  }
 }
 }
